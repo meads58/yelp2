@@ -1,2 +1,11 @@
-No restaurants yet!
-%a(href='#')Add a new restaurant
+%td
+  - if @restaurants.any?
+    %ul
+      - @restaurants.each do |restaurant|
+        %li
+          = restaurant.name
+          = restaurant.rating
+  - else
+    No restaurants yet
+
+= link_to "Add a new restaurant", new_restaurant_path
